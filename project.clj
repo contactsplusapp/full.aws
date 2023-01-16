@@ -7,20 +7,17 @@
   :repositories [["fullcontact" {:url "https://contactsplus.jfrog.io/artifactory/repo"}]
                  ["releases" {:url "https://contactsplus.jfrog.io/artifactory/libs-release-local"}]
                  ["snapshots" {:url "https://contactsplus.jfrog.io/artifactory/libs-snapshot-local"}]]
-  :deploy-repositories [["releases" {:url "https://contactsplus.jfrog.io/artifactory/libs-release-local" :creds :gpg}]
-                        ["snapshots" {:url "https://contactsplus.jfrog.io/artifactory/libs-snapshot-local"}]]
+  :deploy-repositories [["releases" {:url "https://contactsplus.jfrog.io/artifactory/libs-release-local" :sign-releases false}]
+                        ["snapshots" {:url "https://contactsplus.jfrog.io/artifactory/libs-snapshot-local" :sign-releases false}]]
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [com.amazonaws/aws-java-sdk "1.11.16"]
                  [com.taoensso/faraday "1.7.1" ; DynamoDB sugar
                   :exclusions [com.amazonaws/aws-java-sdk-dynamodb joda-time]]
                  [fullcontact/full.http "1.0.9"]
-                 [fullcontact/full.json "0.12.0"
-                  :exclusions [com.fasterxml.jackson.core/jackson-core]]
+                 [fullcontact/full.json "0.10.2"]
                  [fullcontact/full.async "0.9.0"]
                  [fullcontact/full.core "0.10.1"
-                  :exclusions [org.clojure/clojurescript]]
-                 [javax.xml.bind/jaxb-api "2.4.0-b180830.0359"]
-                 [com.fasterxml.jackson.core/jackson-annotations "2.6.0"]]
+                  :exclusions [org.clojure/clojurescript]]]
   :aot :all
   :release-tasks [["vcs" "assert-committed"]
                   ["change" "version" "leiningen.release/bump-version" "release"]
