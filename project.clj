@@ -1,4 +1,4 @@
-(defproject fullcontact/full.aws "0.10.11"
+(defproject fullcontact/full.aws "0.10.12"
   :description "Async Amazon Webservices client."
   :url "https://github.com/contactsplusapp/full.aws"
   :license {:name "Eclipse Public License - v 1.0"
@@ -13,7 +13,7 @@
                  [com.amazonaws/aws-java-sdk "1.11.16"]
                  [com.taoensso/faraday "1.7.1" ; DynamoDB sugar
                   :exclusions [com.amazonaws/aws-java-sdk-dynamodb joda-time]]
-                 [fullcontact/full.http "1.0.9"]
+                 [fullcontact/full.http "1.0.10"]
                  [fullcontact/full.json "0.10.2"]
                  [fullcontact/full.async "0.9.0"]
                  [fullcontact/full.core "0.10.1"
